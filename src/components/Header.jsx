@@ -10,6 +10,7 @@ export default function Header(props) {
             Dark Mode
         </div>
       </section>
+      {props.children}
     </Fragment>
   );
 }

@@ -18,9 +18,12 @@ module.exports = {
       xl: "1440px",
     },
     extend: {
-      // colors: {
-
-      // },
+      colors: {
+        veryDarkBlueLightMode: "hsl(200, 15%, 8%)",
+        darkGrayLightModeInput: "hsl(0, 0%, 52%)",
+        veryLightGrayLightModeBackground: "hsl(0, 0%, 98%)",
+        whiteLightModeElements: "hsl(0, 0%, 100%)",
+      },
       fontFamily: {
         custom: ["Nunito Sans"],
       },
