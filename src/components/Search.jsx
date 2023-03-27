@@ -3,7 +3,7 @@ import { Fragment } from "react";
 export default function Search(props) {
   return (
     <Fragment>
-      <form className=" px-3 mt-10 p-2">
+      <form className=" mt-10">
         <label
           for="default-search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
