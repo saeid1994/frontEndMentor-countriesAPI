@@ -6,8 +6,9 @@ export default function Card(props) {
       {props.data.map((i, index) => {
         return (
           <div
-            className="shadow-md bg-white rounded-md h-[27rem] flex flex-col"
+            className="shadow-md bg-white rounded-md h-[27rem] flex flex-col cursor-pointer"
             key={index}
+            onClick={() => props.handleClick(i.name)}
           >
             <Image
               alt={i.name}

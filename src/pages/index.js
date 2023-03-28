@@ -3,9 +3,17 @@ import path from "path";
 import Card from "@/components/Card";
 import Search_Filter from "@/components/Search_Filter";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 function Home(props) {
+  const router = useRouter();
   const [data, setData] = useState(props.data);
+
+  function handleClick(name) {
+    // router.push();
+    router.push(`/country/${name}`);
+  }
+
   function handleFilter(region) {
     console.log(region.target);
     console.log(data);
@@ -13,7 +21,7 @@ function Home(props) {
   return (
     <div className="bg-veryLightGrayLightModeBackground overflow-hidden px-3 ">
       <Search_Filter filterFun={handleFilter} />
-      <Card data={data} />
+      <Card data={data} handleClick={handleClick} />
     </div>
   );
 }
