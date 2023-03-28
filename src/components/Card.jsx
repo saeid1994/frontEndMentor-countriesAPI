@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Card(props) {
   return (
-    <section className="flex flex-col   p-10 gap-10 ">
+    <section className="flex flex-col p-14 gap-10 md:grid grid-cols-4 md:gap-16">
       {props.data.map((i, index) => {
         return (
           <div
@@ -14,7 +14,7 @@ export default function Card(props) {
               src={i.flags?.png}
               width={500}
               height={500}
-              className="h-1/ rounded-t-md"
+              className="h-1/2 rounded-t-md"
             />
             <h2 className="text-xl m-6 font-bold">{i.name}</h2>
             <span className="mx-6">
