@@ -2,7 +2,15 @@ const fs = require("fs/promises");
 import path from "path";
 import Image from "next/image";
 import Loading from "@/components/Loading";
+import { useRouter } from "next/router";
+
 export default function countryId(props) {
+  const router = useRouter();
+  function handleClick(alpha3Code) {
+    router.push(`/country/${alpha3Code}`);
+    // router.isFallback = false;
+  }
+  console.log(props);
   if (!props.data) {
     return <Loading text="Please wait" color="#000" type="bars" />;
   }
@@ -71,12 +79,13 @@ export default function countryId(props) {
         </div>
         <h2 className="text-xl mt-8">Border Countries: </h2>
         <div className="mt-3  flex justify-between space-x-2">
-          {props.data.borders.map((i, index) => {
+          {props.data.borders?.map((i, index) => {
             if (index <= 2) {
               return (
                 <div
                   key={index}
-                  className="w-1/3 shadow-md border text-center px-3 py-2 rounded-sm"
+                  onClick={() => handleClick(i)}
+                  className="w-1/3 shadow-md border text-center px-3 py-2 rounded-sm cursor-pointer"
                 >
                   {i}
                 </div>
@@ -94,9 +103,8 @@ export async function getStaticPaths() {
   const jsonData = await fs.readFile(filePath);
   let data = JSON.parse(jsonData);
   data = data.slice(0, 5).map((i) => {
-    return { params: { name: i.name } };
+    return { params: { name: i.alpha3Code } };
   });
-  
 
   return {
     paths: data,
@@ -109,7 +117,7 @@ export async function getStaticProps({ params }) {
   const jsonData = await fs.readFile(filePath);
   let data = JSON.parse(jsonData);
 
-  data = data.find((i) => i.name == params.name);
+  data = data.find((i) => i.alpha3Code == params.name);
 
   if (!data) {
     return {

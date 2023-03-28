@@ -8,7 +8,7 @@ export default function Card(props) {
           <div
             className="shadow-md bg-white rounded-md h-[27rem] flex flex-col cursor-pointer"
             key={index}
-            onClick={() => props.handleClick(i.name)}
+            onClick={() => props.handleClick(i.alpha3Code)}
           >
             <Image
               alt={i.name}

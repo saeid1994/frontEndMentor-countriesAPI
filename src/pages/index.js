@@ -9,9 +9,9 @@ function Home(props) {
   const router = useRouter();
   const [data, setData] = useState(props.data);
 
-  function handleClick(name) {
+  function handleClick(alpha3Code) {
     // router.push();
-    router.push(`/country/${name}`);
+    router.push(`/country/${alpha3Code}`);
   }
 
   function handleFilter(region) {
