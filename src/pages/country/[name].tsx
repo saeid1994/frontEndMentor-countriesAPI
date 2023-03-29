@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 import path from "path";
 import Image from "next/image";
-import Loading from "@/components/Loading";
+import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 
 export default function countryId(props) {

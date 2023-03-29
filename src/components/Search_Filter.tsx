@@ -7,13 +7,13 @@ export default function Search_Filter(props) {
         <input
           type="search"
           id="default-search"
-          class=" md:w-1/2 p-6 pl-10 text-sm text-gray-900 rounded-md shadow-lg focus:ring-blue-500 focus:border-blue-500  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+          className=" md:w-1/2 p-6 pl-10 text-sm text-gray-900 rounded-md shadow-lg focus:ring-blue-500 focus:border-blue-500  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
           placeholder="Search Mockups, Logos..."
           required
         />
         <select
           id="large"
-          class=" w-1/2 md:w-1/5 px-4 py-3 shadow-md p-6 rounded-md h-16 "
+          className=" w-1/2 md:w-1/5 px-4 py-3 shadow-md p-6 rounded-md h-16 "
           onChange={(e) => props.filterFun(e)}
         >
           <option selected>Filter by Region</option>
@@ -24,8 +24,8 @@ export default function Search_Filter(props) {
           <option value="Oceania">Oceania</option>
         </select>
         <label
-          for="default-search"
-          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+          htmlFor="default-search"
+          className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
         >
           Search
         </label>

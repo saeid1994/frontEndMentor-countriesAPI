@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 import path from "path";
-import Card from "@/components/Card";
-import Search_Filter from "@/components/Search_Filter";
+import Card from "../components/Card";
+import Search_Filter from "../components/Search_Filter";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -14,7 +14,7 @@ function Home(props) {
     router.push(`/country/${alpha3Code}`);
   }
 
-  function handleFilter(region) {
+  function handleFilter(region): void {
     console.log(region.target);
     console.log(data);
   }
