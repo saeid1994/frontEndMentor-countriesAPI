@@ -15,7 +15,7 @@ export default function countryId(props) {
     return <Loading text="Please wait" color="#000" type="bars" />;
   }
   return (
-    <section className="flex flex-col space-y-10  p-10 ">
+    <section className="flex flex-col space-y-10  p-10 dark:bg-darkModeBackground ">
       <div>Back</div>
       <div className="flex flex-col gap-y-4">
         <Image
@@ -85,7 +85,7 @@ export default function countryId(props) {
                 <div
                   key={index}
                   onClick={() => handleClick(i)}
-                  className="w-1/3 shadow-md border text-center px-3 py-2 rounded-sm cursor-pointer"
+                  className="w-1/3 shadow-md border text-center px-3 py-2 rounded-sm cursor-pointer dark:bg-darkModeElements dark:border-darkModeBackground"
                 >
                   {i}
                 </div>

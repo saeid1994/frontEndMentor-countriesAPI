@@ -6,7 +6,7 @@ export default function Card(props) {
       {props.data.map((i, index) => {
         return (
           <div
-            className="shadow-md bg-white rounded-md h-[27rem] flex flex-col cursor-pointer"
+            className="shadow-md bg-white  rounded-md h-[27rem] flex flex-col cursor-pointer dark:bg-darkModeElements"
             key={index}
             onClick={() => props.handleClick(i.alpha3Code)}
           >

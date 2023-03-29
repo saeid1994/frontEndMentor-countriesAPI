@@ -10,6 +10,7 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     screens: {
       sm: "375px",
@@ -23,6 +24,8 @@ module.exports = {
         darkGrayLightModeInput: "hsl(0, 0%, 52%)",
         veryLightGrayLightModeBackground: "hsl(0, 0%, 98%)",
         whiteLightModeElements: "hsl(0, 0%, 100%)",
+        darkModeElements: "hsl(209, 23%, 22%)",
+        darkModeBackground:"hsl(207, 26%, 17%)"
       },
       fontFamily: {
         custom: ["Nunito Sans"],
