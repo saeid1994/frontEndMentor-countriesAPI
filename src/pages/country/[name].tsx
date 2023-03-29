@@ -3,19 +3,28 @@ import path from "path";
 import Image from "next/image";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 
 export default function countryId(props) {
   const router = useRouter();
+  const { systemTheme, theme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   function handleClick(alpha3Code) {
     router.push(`/country/${alpha3Code}`);
     // router.isFallback = false;
   }
-  console.log(props);
+
   if (!props.data) {
-    return <Loading text="Please wait" color="#000" type="bars" />;
+    return (
+      <Loading
+        text="Please wait"
+        color={`${currentTheme === "dark" ? "#000" : "#fff"}`}
+        type="bars"
+      />
+    );
   }
   return (
-    <section className="flex flex-col space-y-10  p-10 ">
+    <section className="flex flex-col space-y-10  p-10 dark:bg-darkModeBackground ">
       <div>Back</div>
       <div className="flex flex-col gap-y-4">
         <Image
@@ -85,7 +94,7 @@ export default function countryId(props) {
                 <div
                   key={index}
                   onClick={() => handleClick(i)}
-                  className="w-1/3 shadow-md border text-center px-3 py-2 rounded-sm cursor-pointer"
+                  className="w-1/3 shadow-md border text-center px-3 py-2 rounded-sm cursor-pointer dark:bg-darkModeElements dark:border-darkModeBackground"
                 >
                   {i}
                 </div>

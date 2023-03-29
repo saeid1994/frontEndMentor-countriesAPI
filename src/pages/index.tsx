@@ -19,7 +19,7 @@ function Home(props): JSX.Element {
     console.log(data);
   }
   return (
-    <div className="bg-veryLightGrayLightModeBackground overflow-hidden px-3 ">
+    <div className="dark:bg-gray-800 bg-veryLightGrayLightModeBackground overflow-hidden px-3 ">
       <Search_Filter filterFun={handleFilter} />
       <Card data={data} handleClick={handleClick} />
     </div>

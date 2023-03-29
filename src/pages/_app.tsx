@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import "../styles/globals.css";
 import { useEffect } from "react";
+import { ThemeProvider } from "next-themes";
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function App({ Component, pageProps }) {
               registration.scope
             );
           },
-          function (err):void {
+          function (err): void {
             console.log("Service Worker registration failed: ", err);
           }
         );
@@ -22,8 +23,10 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <Header>
-      <Component {...pageProps} />
-    </Header>
+    <ThemeProvider attribute="class">
+      <Header>
+        <Component {...pageProps} />
+      </Header>
+    </ThemeProvider>
   );
 }
