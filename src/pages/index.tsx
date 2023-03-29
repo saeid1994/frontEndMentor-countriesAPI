@@ -5,11 +5,11 @@ import Search_Filter from "../components/Search_Filter";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-function Home(props) {
+function Home(props): JSX.Element {
   const router = useRouter();
   const [data, setData] = useState(props.data);
 
-  function handleClick(alpha3Code) {
+  function handleClick(alpha3Code): void {
     // router.push();
     router.push(`/country/${alpha3Code}`);
   }

@@ -5,15 +5,15 @@ import { useEffect } from "react";
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
+      window.addEventListener("load", function (): void {
         navigator.serviceWorker.register("/sw.js").then(
-          function (registration) {
+          function (registration): void {
             console.log(
               "Service Worker registration successful with scope: ",
               registration.scope
             );
           },
-          function (err) {
+          function (err):void {
             console.log("Service Worker registration failed: ", err);
           }
         );
