@@ -26,6 +26,33 @@ function Home(props): JSX.Element {
 
   function handleFilter(region): void {
     console.log(region.target.value);
+    setFiutlterInput(region.target.value);
+
+    if (region.target.value == 1) {
+      return setData(props.data.filter((i) => i.region.match("Africa")));
+    }
+    if (region.target.value == 2) {
+      return setData(props.data.filter((i) => i.region.match("America")));
+    }
+    if (region.target.value == 3) {
+      return setData(props.data.filter((i) => i.region.match("Asia")));
+    }
+    if (region.target.value == 4) {
+      return setData(props.data.filter((i) => i.region.match("Europe")));
+    }
+    if (region.target.value == 5) {
+      return setData(props.data.filter((i) => i.region.match("Oceania")));
+    } else {
+      setData(props.data);
+    }
+
+    switch (region.target.value) {
+      case 1:
+        console.log("%%%%%%");
+        break;
+      case 2:
+        console.log("##########");
+    }
 
     setFiutlterInput(region.target.value);
   }
