@@ -2,25 +2,68 @@ const fs = require("fs/promises");
 import path from "path";
 import Card from "../components/Card";
 import Search_Filter from "../components/Search_Filter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 function Home(props): JSX.Element {
   const router = useRouter();
   const [data, setData] = useState(props.data);
+  const [inputText, setInputText] = useState("");
+  const [filterInput, setFiutlterInput] = useState(0);
+
+  console.log(filterInput);
 
   function handleClick(alpha3Code): void {
     // router.push();
     router.push(`/country/${alpha3Code}`);
   }
 
+  let inputHandler = (e): void => {
+    //convert input text to lower case
+    const lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+
   function handleFilter(region): void {
-    console.log(region.target);
-    console.log(data);
+    console.log(region.target.value);
+
+    setFiutlterInput(region.target.value);
+  }
+
+  useEffect(() => {
+    setData(props.data.filter((i) => i.name.toUpperCase().match(inputText)));
+
+    if (inputText === "") {
+      setData(props.data);
+    } else {
+      setData(
+        props.data.filter((i) =>
+          i.name.toUpperCase().match(inputText.toUpperCase())
+        )
+      );
+    }
+  }, [inputText]);
+
+  if (!data.length) {
+    return (
+      <div className="dark:bg-darkModeBackground bg-veryLightGrayLightModeBackground h-screen overflow-hidden">
+        <Search_Filter
+          filterFun={handleFilter}
+          handleInput={inputHandler}
+          dataSlected={filterInput}
+        />
+        <Card data={data} handleClick={handleClick} />
+        <h2 className="text-center">not found ...</h2>
+      </div>
+    );
   }
   return (
-    <div className="dark:bg-gray-800 bg-veryLightGrayLightModeBackground overflow-hidden px-3 ">
-      <Search_Filter filterFun={handleFilter} />
+    <div className="dark:bg-darkModeBackground bg-veryLightGrayLightModeBackground overflow-hidden px-3 ">
+      <Search_Filter
+        filterFun={handleFilter}
+        handleInput={inputHandler}
+        dataSlected={filterInput}
+      />
       <Card data={data} handleClick={handleClick} />
     </div>
   );

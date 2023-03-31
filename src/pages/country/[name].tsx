@@ -4,16 +4,20 @@ import Image from "next/image";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
+import { useState } from "react";
 
 export default function countryId(props) {
+  const [inputText, setInputText] = useState("");
+
   const router = useRouter();
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
-  function handleClick(alpha3Code) {
+  function handleClick(alpha3Code: number): void {
     router.push(`/country/${alpha3Code}`);
     // router.isFallback = false;
   }
 
+ 
   if (!props.data) {
     return (
       <Loading
