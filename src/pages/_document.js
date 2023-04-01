@@ -11,6 +11,10 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Nunito+Sans:wght@300;600;800&family=Poppins:wght@500;700&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="path/to/font-awesome/css/font-awesome.min.css"
+        ></link>
       </Head>
       <body>
         <Main />

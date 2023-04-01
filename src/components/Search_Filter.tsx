@@ -14,6 +14,10 @@ export default function Search_Filter(props) {
           placeholder="Search Mockups, Logos..."
           required
         />
+        <div>
+          dfd
+          <i className="fa fa-search bg-red-500" aria-hidden="true"></i>
+        </div>
         <select
           id="large"
           className=" w-1/2 md:w-1/5 px-4 py-3 shadow-md p-6 rounded-md h-16 dark:bg-darkModeElements "

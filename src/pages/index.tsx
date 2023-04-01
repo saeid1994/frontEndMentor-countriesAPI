@@ -11,8 +11,6 @@ function Home(props): JSX.Element {
   const [inputText, setInputText] = useState("");
   const [filterInput, setFiutlterInput] = useState(0);
 
-  console.log(filterInput);
-
   function handleClick(alpha3Code): void {
     // router.push();
     router.push(`/country/${alpha3Code}`);
@@ -25,7 +23,6 @@ function Home(props): JSX.Element {
   };
 
   function handleFilter(region): void {
-    console.log(region.target.value);
     setFiutlterInput(region.target.value);
 
     if (region.target.value == 1) {
@@ -44,14 +41,6 @@ function Home(props): JSX.Element {
       return setData(props.data.filter((i) => i.region.match("Oceania")));
     } else {
       setData(props.data);
-    }
-
-    switch (region.target.value) {
-      case 1:
-        console.log("%%%%%%");
-        break;
-      case 2:
-        console.log("##########");
     }
 
     setFiutlterInput(region.target.value);
